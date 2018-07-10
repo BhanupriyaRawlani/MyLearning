@@ -15,7 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class NewTest {
-	//Initiate driver instance
+	//Initiate driver instance first
 	WebDriver driver;
 	
 
