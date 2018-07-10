@@ -7,9 +7,12 @@ import org.testng.annotations.BeforeTest;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.testng.annotations.AfterTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class NewTest {
 	//Initiate driver instance
@@ -25,10 +28,17 @@ public void launchBrowser() {
 
 	
   @Test
-  public void login() {
-	  driver.get("http://localhost:8083/TestMeApp/login.htm");
+  public void login() throws InterruptedException {
+	  driver.get("https://www.americangolf.co.uk/golf-clubs/wedges");
 	  driver.manage().window().maximize();
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  
+	  JavascriptExecutor js = (JavascriptExecutor) driver;  
+	  WebElement element = driver.findElement(By.xpath("(//*[contains(@class,'slider-control noUi-target noUi-ltr noUi-horizontal')])[1]"));
+	  js.executeScript("arguments[0].scrollIntoView(true)", element);
+	  Thread.sleep(1000);
+	  js.executeScript("window.scrollBy(0, -150)");
+	  Thread.sleep(1000);
 	  
   }
   @AfterTest
