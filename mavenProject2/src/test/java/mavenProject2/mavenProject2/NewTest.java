@@ -21,6 +21,7 @@ public class NewTest {
 
 @BeforeTest
 public void launchBrowser() {
+	//set
 	System.setProperty("webdriver.chrome.driver", "C:\\Users\\A06438_P5.training\\Downloads\\chromedriver_win32\\chromedriver.exe");
 	  driver = new ChromeDriver();
 	 
