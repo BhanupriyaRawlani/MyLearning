@@ -15,7 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class NewTest {
-	//Initiate driver instance 3
+	//Initiate driver instance branch
 	WebDriver driver;
 	
 
@@ -34,12 +34,13 @@ public void launchBrowser() {
 	  driver.manage().window().maximize();
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  
-	  JavascriptExecutor js = (JavascriptExecutor) driver;  
+	   
 	  WebElement element = driver.findElement(By.xpath("(//*[contains(@class,'slider-control noUi-target noUi-ltr noUi-horizontal')])[1]"));
+	  JavascriptExecutor js = (JavascriptExecutor) driver; 
 	  js.executeScript("arguments[0].scrollIntoView(true)", element);
-	  Thread.sleep(1000);
+	  Thread.sleep(5000);
 	  js.executeScript("window.scrollBy(0, -150)");
-	  Thread.sleep(1000);
+	  Thread.sleep(3000);
 	  
   }
   @AfterTest
